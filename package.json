@@ -4,7 +4,9 @@
   "description": "A game to see how fast you can type",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel src/index.pug"
+    "dev": "npm run clean && rimraf parcel src/index.pug",
+    "build": "npm run clean && parcel build src/index.pug --out-dir docs",
+    "clean": "rimraf ./docs && rimraf ./dist && rimraf ./.cache"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +14,7 @@
   "devDependencies": {
     "parcel-bundler": "^1.12.4",
     "pug": "^2.0.4",
+    "rimraf": "^3.0.2",
     "sass": "^1.26.5"
   }
 }

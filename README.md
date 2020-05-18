@@ -6,7 +6,7 @@ A typing game
 1. Clone or fork the repository
 2. Run the commands:
 
-  ```
-  npm i
-  npm run dev
-  ```
+    ```
+    npm i
+    npm run dev
+    ```
