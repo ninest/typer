@@ -4,7 +4,7 @@
   "description": "A game to see how fast you can type",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run clean && rimraf parcel src/index.pug",
+    "dev": "npm run clean && parcel src/index.pug",
     "build": "npm run clean && parcel build src/index.pug --out-dir docs --public-url /typer",
     "clean": "rimraf ./docs && rimraf ./dist && rimraf ./.cache"
   },

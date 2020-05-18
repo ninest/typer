@@ -1,7 +1,13 @@
+import {
+  getHighscore,
+  setHighscore,
+} from './highscore.js';
+
 const $currentWord = document.getElementById('current_word');
 const $textField = document.getElementById('text_field');
 const $time = document.getElementById('time');
 const $score = document.getElementById('score')
+const $highscore = document.getElementById('highscore')
 
 const words = ["one", "two", "three", "four", "computer", "stewardess", "four-twenty", "javascript", "large-headed donkey"];
 var currentWord = '';
@@ -15,10 +21,12 @@ document.body.onload = () => {
   $currentWord.innerText = 'Type "start" to play'
   $textField.focus();
 
-  $textField.oninput = update;
+  $textField.oninput = textFieldUpdate;
+
+  $highscore.innerText = getHighscore();
 }
 
-const update = (e) => {
+const textFieldUpdate = () => {
   const text = $textField.value.toLowerCase();
 
   if (!inGame && text === 'start') startGame();
@@ -68,6 +76,16 @@ const endGame = () => {
   clearInterval(interval);
 
   inGame = false;
+  
+  // check if score more than highscore
+  const highscore = getHighscore();
+  if (score > highscore) {
+    console.log('high score has been beaten!')
+    // set new highscore
+    $highscore.innerText = score;
+    setHighscore(score);
+  }
+
 
   $currentWord.innerText = 'Type "start" to play again'
   $textField.value = '';
