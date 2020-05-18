@@ -1,0 +1,21 @@
+extends ./templates/root.pug
+
+block body
+  main
+    h1 Typer 
+
+    div(id="current_word")
+
+    input(id="text_field" type="text")
+
+    div 
+      span Score:
+      span(id="score") 0
+
+    div 
+      span Time:
+      span(id="time") 10
+
+block script
+  script(src="./index.js")
+    

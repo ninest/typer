@@ -4,7 +4,7 @@
   "description": "A game to see how fast you can type",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel src/pages/index.pug"
+    "dev": "parcel src/index.pug"
   },
   "keywords": [],
   "author": "",
