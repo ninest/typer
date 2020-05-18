@@ -3,15 +3,16 @@ const $textField = document.getElementById('text_field');
 const $time = document.getElementById('time');
 const $score = document.getElementById('score')
 
-const words = ["one", "two", "three", "four", "computer", "stewardess", "four-twenty", "javascript", "large-headed donkey"]
-var currentWord = ""
+const words = ["one", "two", "three", "four", "computer", "stewardess", "four-twenty", "javascript", "large-headed donkey"];
+var currentWord = '';
 
 var inGame = false;
 var time = 0; // milliseconds
 var score = 0;
+var interval;
 
 document.body.onload = () => {
-  $currentWord.innerText = 'start'
+  $currentWord.innerText = 'Type "start" to play'
   $textField.focus();
 
   $textField.oninput = update;
@@ -27,17 +28,20 @@ const update = (e) => {
 }
 
 const startGame = () => {
-  // start game
   inGame = true;
+  score = 0;
   
-  // 10 seconds to start
-  round(10);
+  // 5 seconds to start
+  round(5);
 
-  setInterval(() => {
+
+  interval = setInterval(() => {
     time--;
     $time.innerText = time;
+    if (time <= 0) {
+      endGame();
+    }
   }, 1000);
-
 }
 
 
@@ -57,4 +61,14 @@ const round = (val) => {
 // when word typed
 const increaseTime = (val) => {
   time = time + val;
+}
+
+const endGame = () => {
+  // reset timer
+  clearInterval(interval);
+
+  inGame = false;
+
+  $currentWord.innerText = 'Type "start" to play again'
+  $textField.value = '';
 }
