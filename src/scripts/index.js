@@ -67,6 +67,7 @@ const startGame = () => {
   }, 1000);
 };
 
+// called each round, after word typed correctly
 const round = (val) => {
   // clear the textfield
   $textField.value = '';
@@ -81,7 +82,7 @@ const round = (val) => {
   $textField.placeholder = `type "${currentWord}"`;
 };
 
-// when word typed
+// when word typed correctly, time should be increased
 const increaseTime = (val) => {
   time = time + val;
 };
