@@ -1,0 +1,11 @@
+@import "variables.scss";
+
+html {
+  font-size: 17px;
+  font-family: 'Inter', -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; 
+}
+
+body {
+  background-color: $bg;
+  color: $p-text;
+}
