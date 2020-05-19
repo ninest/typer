@@ -2,6 +2,9 @@
 
 > A simple game to test your typing skills
 
+![Made with JavaScript](https://img.shields.io/badge/Made%20With-JavaScript-black?style=flat-square&)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
 ## 🎮 How to play
 1. Visit [https://ninest.github.io/typer](https://ninest.github.io/typer)
 2. To start a game, type "start"
