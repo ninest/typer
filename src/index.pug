@@ -4,21 +4,42 @@ block body
   main
     h1 Typer 
 
-    div(id="current_word")
+    .top
+      div(id="start_text")
+        span Type "
+        b start
+        span " to play
+
+      div(id="current_word") 
+
+      div(id="time") 0
 
     input(id="text_field" type="text")
 
-    div 
-      span Score:
-      span(id="score") 0
-    
-    div 
-      span Highscore:
-      span(id="highscore") 0
+    div(id='final_score_wrapper')
+      span FINAL_SCORE
+      span.equals =
+      span(id="final_score") 0
+      span ;
 
-    div 
-      span Time:
-      span(id="time") 5
+    .bottom
+      //- .time
+      //-   span time
+      //-   span.equals =
+      //-   span(id="time") 5
+      //-   span ;
+
+      .score
+        span score
+        span.equals =
+        span(id="score") 0
+        span ;
+      
+      .highscore
+        span highscore
+        span.equals =
+        span(id="highscore") 0
+        span ;
 
 block script
   script(src="~/scripts/index.js")

@@ -1,11 +1,84 @@
 @import "variables.scss";
 
 html {
-  font-size: 17px;
+  font-size: 25px;
   font-family: 'Inter', -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; 
 }
+* { box-sizing: border-box;}
 
 body {
   background-color: $bg;
   color: $p-text;
+
+  padding: 2em 10%;
+  @include not-mobile-screen {
+    padding: 2em 30%; 
+  }
+
+  main { 
+    h1 {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-style: italic;
+    }
+
+    
+    .top {
+      display: flex;
+      justify-content: space-between;
+      
+      #start_text {
+        color: green;
+
+        & .game-over {
+          color: red;
+        }
+      }
+
+      #current_word {
+        color: $p-text
+      }
+      margin-bottom: 2em;
+    }
+
+
+    input[type=text] {
+      padding: 0.5em;
+      border-radius: 0.2em;
+
+      border: 2px solid $input-border;
+      background-color: $input-bg;
+
+      color: $input-text;
+
+      width: 100%;
+
+      margin-bottom: 2.5em;
+
+      &:focus {
+        outline: none;
+        border: 2px solid #000075;
+      }
+    }
+
+    #final_score_wrapper {
+      margin-bottom: 0.5em;
+      font-weight: bold;
+    }
+
+    .bottom {
+      font-size: 0.8em;
+      display: flex;
+      // justify-content: space-between;
+      align-items: center;
+
+      div {
+        margin-right: 1em;
+      }
+    }
+
+    .equals {
+      padding: 0 0.2em;
+    }
+  }
 }
