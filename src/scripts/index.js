@@ -24,6 +24,8 @@ document.body.onload = () => {
 
   $textField.focus();
   $textField.oninput = textFieldUpdate;
+  // set placeholder to "start"
+  $textField.placeholder = 'type "start"';
 
   // hide final score, should only show at end of game
   hide($finalScoreWrapper);
@@ -73,6 +75,7 @@ const round = (val) => {
   // get random word
   currentWord = words[Math.floor(Math.random() * words.length)];
   $currentWord.innerText = currentWord;
+  $textField.placeholder = `type "${currentWord}"`;
 };
 
 // when word typed
@@ -89,12 +92,15 @@ const endGame = () => {
   // show start text and change text
   show($startText);
   $startText.innerHTML = `
-    <span class="game-over">Game over. </span> Type "<b>start</b> to play</span>
+    <span class="game-over">Game over. </span> Type "<b>start</b> to play again</span>
   `;
 
   // show final score
   $finalScore.innerText = score;
   show($finalScoreWrapper);
+
+  // set placeholder to "start"
+  $textField.placeholder = 'type "start"';
 
   // check if score more than highscore
   const highscore = getHighscore();
