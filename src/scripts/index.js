@@ -2,6 +2,7 @@ import {
   getHighscore,
   setHighscore
 } from './highscore.js';
+import words from '~/assets/words.yml';
 
 const $currentWord = document.getElementById('current_word');
 const $textField = document.getElementById('text_field');
@@ -9,9 +10,7 @@ const $time = document.getElementById('time');
 const $score = document.getElementById('score');
 const $highscore = document.getElementById('highscore');
 
-const words = ['one', 'two', 'three', 'four', 'computer', 'stewardess', 'four-twenty', 'javascript', 'large-headed donkey'];
 var currentWord = '';
-
 var inGame = false;
 var time = 0; // milliseconds
 var score = 0;
