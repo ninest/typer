@@ -46,6 +46,9 @@ const startGame = () => {
   inGame = true;
   score = 0;
 
+  // set game length
+  $time.innerText = `${gameLenght}s`;
+
   // start round
   round(gameLenght);
 
