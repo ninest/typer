@@ -13,6 +13,7 @@ You now have **10 seconds** to type out all the words displayed. For every word 
 
 
 ## 🛠 Build setup
+### Web
 Clone or fork the repository, then run the commands to start the development server:
 
 ```
@@ -26,17 +27,7 @@ To build the app, run
 npm run build
 ```
 
-<!-- To invalidate cache,
-
-```
-caches.keys().then(cacheNames => {
-  cacheNames.forEach(cacheName => {
-    caches.delete(cacheName);
-  });
-});
-``` -->
-
-### Hosting
+#### Hosting
 
 The game is hosted with Vercel. To host a debug version of the app, run
 
@@ -48,4 +39,10 @@ To host the production version of the app, run
 
 ```
 now --prod
+```
+
+### Desktop
+To test the app on desktop (without downloading), run 
+```
+deno run -A -r --unstable --allow-read https://github.com/ninest/typer/blob/master/desktop/main.ts
 ```
