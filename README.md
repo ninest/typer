@@ -9,7 +9,7 @@
 1. Visit [https://typerapp.now.sh/](https://typerapp.now.sh/)
 2. To start a game, type "start"
 
-You now have **5 seconds** to type out all the words displayed. For every word you type correctly, your score increases, and you also get **1 extra second**. Can you beat my highscore of 11? (you probably can)
+You now have **10 seconds** to type out all the words displayed. For every word you type correctly, your score increases, and you also get **1 extra second**. Can you beat my highscore of 16? (you probably can)
 
 
 ## 🛠 Build setup
