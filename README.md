@@ -11,6 +11,11 @@
 
 You now have **10 seconds** to type out all the words displayed. For every word you type correctly, your score increases, and you also get **1 extra second**. Can you beat my highscore of 16? (you probably can)
 
+Test the app on desktop with Deno by running
+
+```
+deno run -A -r --unstable --allow-read https://raw.githubusercontent.com/ninest/typer/master/desktop/main.ts
+```
 
 ## 🛠 Build setup
 ### Web
@@ -42,7 +47,7 @@ now --prod
 ```
 
 ### Desktop
-To test the app on desktop (without downloading), run 
+Run the app on desktop with
 ```
-deno run -A -r --unstable --allow-read https://github.com/ninest/typer/blob/master/desktop/main.ts
+deno run -A -r --unstable --allow-read desktop/main.ts
 ```
