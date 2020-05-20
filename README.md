@@ -26,8 +26,6 @@ To build the app, run
 npm run build
 ```
 
-The website will be built to the `docs/` folder so that it can be hosted with GitHub pages.
-
 To invalidate cache,
 
 ```
@@ -40,3 +38,17 @@ caches.keys().then(cacheNames => {
 ```
 <!--     "build-test": "npm run clean && parcel build src/index.pug --out-dir dist",  -->
 <!-- //  --public-url /typer -->
+
+### Hosting
+
+The game is hosted with Vercel. To host a debug version of the app, run
+
+```
+now
+```
+
+To host the production version of the app, run
+
+```
+now --prod
+```
