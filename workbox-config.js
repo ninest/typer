@@ -1,9 +1,9 @@
 module.exports = {
-  globDirectory: 'docs/',
+  globDirectory: 'public/',
   globPatterns: [
     '**/*.{html,css,js}'
   ],
-  swDest: 'docs/service-worker.js',
+  swDest: 'public/service-worker.js',
   runtimeCaching: [
     {
       urlPattern: /^https:\/\/fonts\.googleapis\.com/,

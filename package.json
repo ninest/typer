@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "npm run clean && parcel src/index.pug",
-    "build": "npm run clean && parcel build src/index.pug --out-dir docs --public-url /typer",
-    "build-test": "npm run clean && parcel build src/index.pug --out-dir docs",
+    "build": "npm run clean && parcel build src/index.pug --out-dir public && npm run build-sw",
     "build-sw": "workbox generateSW workbox-config.js",
-    "clean": "rimraf ./docs && rimraf ./dist && rimraf ./.cache"
+    "clean": "rimraf ./public && rimraf ./dist && rimraf ./.cache"
   },
   "keywords": [],
   "author": "",

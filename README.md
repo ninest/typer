@@ -36,4 +36,7 @@ caches.keys().then(cacheNames => {
     caches.delete(cacheName);
   });
 });
+
 ```
+<!--     "build-test": "npm run clean && parcel build src/index.pug --out-dir dist",  -->
+<!-- //  --public-url /typer -->
