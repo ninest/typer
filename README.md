@@ -27,3 +27,13 @@ npm run build
 ```
 
 The website will be built to the `docs/` folder so that it can be hosted with GitHub pages.
+
+To invalidate cache,
+
+```
+caches.keys().then(cacheNames => {
+  cacheNames.forEach(cacheName => {
+    caches.delete(cacheName);
+  });
+});
+```

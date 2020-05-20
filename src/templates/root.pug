@@ -13,4 +13,12 @@ html(lang="en")
     title Typer
   body
     block body
+
+    script.
+      if (process.env.NODE_ENV === 'development') {
+        console.log('dev')
+      } else {
+        console.log('prod')
+      }
+
     block script

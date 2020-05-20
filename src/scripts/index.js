@@ -103,8 +103,10 @@ const endGame = () => {
   $finalScore.innerText = score;
   show($finalScoreWrapper);
 
-  // set placeholder to "start"
+  // set placeholder to "start" and empty textfield
   $textField.placeholder = 'type "start"';
+  $textField.value = '';
+  $textField.blur();
 
   // check if score more than highscore
   const highscore = getHighscore();
@@ -116,5 +118,4 @@ const endGame = () => {
   }
 
   hide($currentWord);
-  $textField.value = '';
 };
