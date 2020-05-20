@@ -96,7 +96,7 @@ const endGame = () => {
   // show start text and change text
   show($startText);
   $startText.innerHTML = `
-    <span class="game-over">Game over. </span> Type "<b>start</b> to play again</span>
+    <span class="game-over">Game over. </span> Type "<b>start</b>" to play again</span>
   `;
 
   // show final score
