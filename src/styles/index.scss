@@ -2,9 +2,10 @@
 
 html {
   font-size: 25px;
-  font-family: 'Inter', -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; 
+  font-family: 'Inter', -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;}
+* {
+  box-sizing: border-box;
 }
-* { box-sizing: border-box;}
 
 body {
   background-color: $bg;
@@ -63,7 +64,7 @@ body {
 
     #final_score_wrapper {
       margin-bottom: 0.5em;
-      // font-weight: bold;
+      font-weight: bold;
     }
 
     .bottom {
@@ -77,8 +78,7 @@ body {
       }
     }
 
-    .equals {
-      padding: 0 0.2em;
-    }
+    .equals{
+      padding: 0 0.2em;}
   }
 }

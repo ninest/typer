@@ -13,8 +13,8 @@ const $highscore = document.getElementById('highscore');
 
 var currentWord = '';
 var inGame = false;
-var time = 0; // milliseconds
-const gameLenght = 5; // milliseconds
+var time = 0;
+const gameLenght = 10;
 var score = 0;
 var interval;
 
