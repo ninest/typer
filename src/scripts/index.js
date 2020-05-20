@@ -39,7 +39,7 @@ const textFieldUpdate = () => {
   if (!inGame && text === 'start') startGame();
 
   // if word guessed correct, get an extra second
-  if (inGame && text === currentWord) round(1);
+  if (inGame && text.trim() === currentWord) round(1);
 };
 
 const startGame = () => {
