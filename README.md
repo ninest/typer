@@ -14,7 +14,7 @@ You now have **10 seconds** to type out all the words displayed. For every word 
 Test the app on desktop with Deno by running
 
 ```
-deno run -A -r --unstable --allow-read https://raw.githubusercontent.com/ninest/typer/master/desktop/main.ts
+deno run -A --unstable https://raw.githubusercontent.com/ninest/web-window/master/index.ts open https://typerapp.now.sh  
 ```
 
 ## 🛠 Build setup
@@ -49,5 +49,5 @@ now --prod
 ### Desktop
 Run the app on desktop with
 ```
-deno run -A -r --unstable --allow-read desktop/main.ts
+deno run -A --unstable https://raw.githubusercontent.com/ninest/web-window/master/index.ts open https://typerapp.now.sh
 ```
