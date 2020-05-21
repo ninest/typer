@@ -14,7 +14,7 @@ const $highscore = document.getElementById('highscore');
 var currentWord = '';
 var inGame = false;
 var time = 0;
-const gameLenght = 10;
+const gameLenght = 1;
 var score = 0;
 var interval;
 
