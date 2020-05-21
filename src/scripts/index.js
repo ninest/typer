@@ -6,15 +6,14 @@ const $startText = document.getElementById('start_text');
 const $currentWord = document.getElementById('current_word');
 const $textField = document.getElementById('text_field');
 const $time = document.getElementById('time');
-const $finalScoreWrapper = document.getElementById('final_score_wrapper');
-const $finalScore = document.getElementById('final_score');
+const $scoreWrapper = document.getElementById('score_wrapper');
 const $score = document.getElementById('score');
 const $highscore = document.getElementById('highscore');
 
 var currentWord = '';
 var inGame = false;
 var time = 0;
-const gameLenght = 1;
+const gameLenght = 10;
 var score = 0;
 var interval;
 
@@ -27,10 +26,10 @@ document.body.onload = () => {
   // set placeholder to "start"
   $textField.placeholder = 'type "start"';
 
-  // hide final score, should only show at end of game
-  hide($finalScoreWrapper);
-
   $highscore.innerText = getHighscore();
+
+  // only show score display when game starts
+  hide($scoreWrapper);
 };
 
 const textFieldUpdate = () => {
@@ -55,8 +54,8 @@ const startGame = () => {
   show($currentWord);
   hide($startText);
 
-  // hide final score, should only show at end of game
-  hide($finalScoreWrapper);
+  show($scoreWrapper);
+
 
   interval = setInterval(() => {
     time--;
@@ -99,9 +98,6 @@ const endGame = () => {
     <span class="game-over">Game over. </span> Type "<b>start</b>" to play again</span>
   `;
 
-  // show final score
-  $finalScore.innerText = score;
-  show($finalScoreWrapper);
 
   // set placeholder to "start" and empty textfield
   $textField.placeholder = 'type "start"';

@@ -16,19 +16,13 @@ block body
 
     input(id="text_field" type="text")
 
-    div(id='final_score_wrapper')
-      span.var-name FINAL_SCORE
+    div(id='score_wrapper')
+      span.var-name SCORE
       span.equals =
-      span(id="final_score").val 0
+      span(id="score").val 0
       span.semi ;
 
     .bottom
-      .score
-        span.var-name score
-        span.equals =
-        span(id="score").val 0
-        span.semi ;
-      
       .highscore
         span.var-name highscore
         span.equals =

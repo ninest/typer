@@ -38,6 +38,7 @@ body {
 
       #current_word {
         margin-top: 0.2em;
+        margin-right: 0.2em;
         color: $p-text;
         letter-spacing: 0.2em;
       }
@@ -65,7 +66,7 @@ body {
       }
     }
 
-    #final_score_wrapper {
+    #score_wrapper {
       margin-bottom: 0.8em;
       font-weight: bold;
     }
