@@ -120,3 +120,5 @@ dist
 .vercel
 
 .deno_plugins
+
+public
