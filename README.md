@@ -1,21 +1,22 @@
-# [Typer](https://typerapp.now.sh/)
+<h1 align="center"><a href="https://typerapp.now.sh/">⌨️ Typer</a></h1>
 
-> A simple game to test your typing skills
+<p align="center">The 10-second typing game</p>
 
-![Made with JavaScript](https://img.shields.io/badge/Made%20With-JavaScript-black?style=flat-square&)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+<p align="center">
+  <img src="https://img.shields.io/badge/Made%20With-JavaScript-black?style=flat-square&" alt="Made with Deno" />
+  <a href="http://makeapullrequest.com/">
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="Make a PR" />
+  </a>
+  <img src="https://img.shields.io/github/license/ninest/typer?style=flat-square" alt="MIT" />
+</p>
+
+<p align="center"><a href="https://typerapp.now.sh/"><img width="500" alt="demo" src="./readme-assets/demo.gif"></a></p>
 
 ## 🎮 How to play
 1. Visit [https://typerapp.now.sh/](https://typerapp.now.sh/)
 2. To start a game, type "start"
 
 You now have **10 seconds** to type out all the words displayed. For every word you type correctly, your score increases, and you also get **1 extra second**. Can you beat my highscore of 16? (you probably can)
-
-Test the app on desktop with Deno by running
-
-```
-deno run -A --unstable https://raw.githubusercontent.com/ninest/web-window/master/index.ts open https://typerapp.now.sh  
-```
 
 ## 🛠 Build setup
 ### Web
