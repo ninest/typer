@@ -1,0 +1,26 @@
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  opacity: 0.8;
+  display: flex;;
+
+  padding-bottom: 4em;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  a {
+    opacity: 0.5;
+    &:hover {
+      opacity: 1.0;
+      color: white;
+    }
+  }
+
+  a + a{
+    margin-left: 1em;
+  }
+}

@@ -9,6 +9,7 @@ const $time = document.getElementById('time');
 const $scoreWrapper = document.getElementById('score_wrapper');
 const $score = document.getElementById('score');
 const $highscore = document.getElementById('highscore');
+const $footer = document.getElementById('footer');
 
 var currentWord = '';
 var inGame = false;
@@ -56,6 +57,7 @@ const startGame = () => {
 
   show($scoreWrapper);
 
+  hide($footer);
 
   interval = setInterval(() => {
     time--;
@@ -98,7 +100,6 @@ const endGame = () => {
     <span class="game-over">Game over. </span> Type "<b>start</b>" to play again</span>
   `;
 
-
   // set placeholder to "start" and empty textfield
   $textField.placeholder = 'type "start"';
   $textField.value = '';
@@ -114,4 +115,6 @@ const endGame = () => {
   }
 
   hide($currentWord);
+
+  show($footer);
 };
