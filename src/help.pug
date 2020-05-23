@@ -1,0 +1,25 @@
+extends ./templates/root.pug
+
+block body
+  main
+    h1 Help
+
+    a(href="/").back back
+
+    article
+      h2 How to play
+      ol
+        li Type "start" in the text box to start the game
+        li You know have 10 seconds to play. Type out each word as fast as you can
+
+      p For each word you get correctly, you get 1 extra second. Can you beat my high score of 17?
+
+      p Good luck.
+
+block script
+  script(src="~/scripts/index.js")
+
+block styles
+  link(rel="stylesheet", href="~/styles/index.scss")
+  link(rel="stylesheet", href="~/styles/help.scss")
+

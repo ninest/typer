@@ -1,0 +1,13 @@
+.back {
+  color: blue;
+  text-decoration: none;
+  &:hover {
+    color: white;
+    text-decoration: underline;
+  }
+}
+
+article {
+  margin-top: 1em;
+  line-height: 2.0;
+}

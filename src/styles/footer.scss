@@ -6,7 +6,7 @@ footer {
   opacity: 0.8;
   display: flex;;
 
-  padding-bottom: 4em;
+  padding-bottom: 3em;
 
   &:hover {
     opacity: 0.8;
@@ -14,8 +14,10 @@ footer {
 
   a {
     opacity: 0.5;
+    color: inherit;
     &:hover {
       opacity: 1.0;
+      text-decoration: underline;
       color: white;
     }
   }
