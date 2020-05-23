@@ -122,3 +122,5 @@ dist
 .deno_plugins
 
 public
+
+.DS_Store
