@@ -8,6 +8,9 @@
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="Make a PR" />
   </a>
   <img src="https://img.shields.io/github/license/ninest/typer?style=flat-square" alt="MIT" />
+  <a href="https://www.buymeacoffee.com/ninest">
+    <img src="https://img.shields.io/badge/Donate-Buy%20Me%20A%20Coffee-orange.svg?style=flat-square" alt="Buy Me A Coffee">
+  </a>
 </p>
 
 <p align="center"><a href="https://typerapp.now.sh/"><img width="500" alt="demo" src="./readme-assets/demo.gif"></a></p>
