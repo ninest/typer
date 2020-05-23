@@ -11,6 +11,7 @@ const $score = document.getElementById('score');
 const $highscore = document.getElementById('highscore');
 const $footer = document.getElementById('footer');
 
+var doneWords = [];
 var currentWord = '';
 var inGame = false;
 var time = 0;
@@ -78,9 +79,27 @@ const round = (val) => {
   $score.innerText = score;
 
   // get random word
-  currentWord = words[Math.floor(Math.random() * words.length)];
+  while (true) {
+    // if the word has already been given, don't give again
+    currentWord = words[Math.floor(Math.random() * words.length)];
+    if (doneWords.includes(currentWord)) {
+      console.log(`${currentWord} already done!`);
+    } else {
+      break;
+    }
+  }
+
   $currentWord.innerText = currentWord;
   $textField.placeholder = `type "${currentWord}"`;
+
+  doneWords.push(currentWord);
+
+  // if doneWords is the same size as words, empty it out
+  // because otherwise there are no words left
+  if (doneWords.length === words.length) {
+    console.log('All words done!');
+    doneWords = [];
+  }
 };
 
 // when word typed correctly, time should be increased
