@@ -1,3 +1,5 @@
+@import "variables.scss";
+
 footer {
   position: absolute;
   bottom: 0;
@@ -6,7 +8,7 @@ footer {
   opacity: 0.8;
   display: flex;;
 
-  padding-bottom: 3em;
+  padding-bottom: 2em;
 
   &:hover {
     opacity: 0.8;
@@ -24,5 +26,10 @@ footer {
 
   a + a{
     margin-left: 1em;
+  }
+
+  // hide if screen height is low
+  @include low-height-screen {
+    display: none;
   }
 }

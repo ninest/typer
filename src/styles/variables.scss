@@ -12,3 +12,9 @@ $input-border: #000000;
     @content;
   }
 }
+
+@mixin low-height-screen {
+  @media screen and (max-height: 500px) {
+    @content;
+  }
+}
