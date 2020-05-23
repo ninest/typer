@@ -52,3 +52,12 @@ Run the app on desktop with
 ```
 deno run -A --unstable https://raw.githubusercontent.com/ninest/web-window/master/index.ts open https://typerapp.now.sh
 ```
+
+## ♥️ Support
+If you liked this project, consider supporting by
+- ⭐️ Starring the repository
+- 🎒 Checking out my other [projects](https://github.com/ninest)
+- ☕️ Buying me [coffee](https://www.buymeacoffee.com/ninest)
+
+## 📜 License
+MIT
