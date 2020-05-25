@@ -43,7 +43,18 @@ const textFieldUpdate = () => {
   if (!state.inGame && text === 'start') startGame();
 
   // if word guessed correct, get an extra second
-  if (state.inGame && text.trim() === state.currentWord) round(1);
+  if (state.inGame && text.trim() === state.currentWord) {
+    // 1 in 10 chance to get 2 extra seconds
+    const r = Math.floor(Math.random() * 10);
+    if (r === 0) {
+      console.log('bonus time!');
+      round(2);
+      return;
+    }
+
+    // by default get 1 extra second for each correct word
+    round(1);
+  }
 };
 
 const startGame = () => {
@@ -107,10 +118,12 @@ const round = (val) => {
   // reset it if it was the password field
   state.isPassword = false;
   $textField.type = 'text';
+  $textField.blur();
+  $textField.focus();
 
   // randomly, make the field a password field so users can't see what's going on
-  // 1 in 10 chance
-  const r = Math.floor(Math.random() * 10);
+  // 1 in 6 chance
+  const r = Math.floor(Math.random() * 6);
   if (r === 0) {
     state.isPassword = true;
     $textField.type = 'password';
