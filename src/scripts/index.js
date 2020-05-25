@@ -122,7 +122,7 @@ const endGame = () => {
   // set placeholder to "start" and empty textfield
   $textField.placeholder = 'type "start"';
   $textField.value = '';
-  $textField.blur();
+  // $textField.blur();
 
   // check if score more than highscore
   const highscore = getHighscore();
