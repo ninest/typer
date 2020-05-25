@@ -109,7 +109,8 @@ const round = (val) => {
   $textField.type = 'text';
 
   // randomly, make the field a password field so users can't see what's going on
-  const r = Math.floor(Math.random() * 2);
+  // 1 in 10 chance
+  const r = Math.floor(Math.random() * 10);
   if (r === 0) {
     state.isPassword = true;
     $textField.type = 'password';
