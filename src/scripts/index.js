@@ -1,5 +1,5 @@
 import { getHighscore, setHighscore } from './highscore.js';
-import { hide, show } from './utils.js';
+import { show, hide } from './utils.js';
 import words from '~/assets/words.yml';
 
 const $startText = document.getElementById('start_text');
@@ -11,41 +11,44 @@ const $score = document.getElementById('score');
 const $highscore = document.getElementById('highscore');
 const $footer = document.getElementById('footer');
 
-var doneWords = [];
-var currentWord = '';
-var inGame = false;
-var time = 0;
+const state = {
+  doneWords: [],
+  currentWord: '',
+  inGame: false,
+  time: 0,
+  score: 0,
+  isPassword: false
+};
 const gameLenght = 10;
-var score = 0;
 var interval;
 
-document.body.onload = () => {
-  hide($currentWord);
+window.addEventListener('load', () => {
   $time.innerText = `${gameLenght}s`;
 
   $textField.focus();
   $textField.oninput = textFieldUpdate;
-  // set placeholder to "start"
   $textField.placeholder = 'type "start"';
 
   $highscore.innerText = getHighscore();
 
+  // only show current word when game starts
+  hide($currentWord);
   // only show score display when game starts
   hide($scoreWrapper);
-};
+});
 
 const textFieldUpdate = () => {
   const text = $textField.value.toLowerCase();
 
-  if (!inGame && text === 'start') startGame();
+  if (!state.inGame && text === 'start') startGame();
 
   // if word guessed correct, get an extra second
-  if (inGame && text.trim() === currentWord) round(1);
+  if (state.inGame && text.trim() === state.currentWord) round(1);
 };
 
 const startGame = () => {
-  inGame = true;
-  score = 0;
+  state.inGame = true;
+  state.score = 0;
 
   // set game length
   $time.innerText = `${gameLenght}s`;
@@ -61,9 +64,9 @@ const startGame = () => {
   hide($footer);
 
   interval = setInterval(() => {
-    time--;
-    $time.innerText = `${time}s`;
-    if (time <= 0) {
+    state.time--;
+    $time.innerText = `${state.time}s`;
+    if (state.time <= 0) {
       endGame();
     }
   }, 1000);
@@ -74,44 +77,50 @@ const round = (val) => {
   // clear the textfield
   $textField.value = '';
 
-  increaseTime(val);
-  score++;
-  $score.innerText = score;
+  state.time = state.time + val;
+  state.score++;
+  $score.innerText = state.score;
 
   // get random word
   while (true) {
     // if the word has already been given, don't give again
-    currentWord = words[Math.floor(Math.random() * words.length)];
-    if (doneWords.includes(currentWord)) {
-      console.log(`${currentWord} already done!`);
+    state.currentWord = words[Math.floor(Math.random() * words.length)];
+    if (state.doneWords.includes(state.currentWord)) {
+      console.log(`${state.currentWord} already done!`);
     } else {
       break;
     }
   }
 
-  $currentWord.innerText = currentWord;
-  $textField.placeholder = `type "${currentWord}"`;
+  $currentWord.innerText = state.currentWord;
+  $textField.placeholder = `type "${state.currentWord}"`;
 
-  doneWords.push(currentWord);
+  state.doneWords.push(state.currentWord);
 
   // if doneWords is the same size as words, empty it out
   // because otherwise there are no words left
-  if (doneWords.length === words.length) {
+  if (state.doneWords.length === words.length) {
     console.log('All words done!');
-    doneWords = [];
+    state.doneWords = [];
   }
-};
 
-// when word typed correctly, time should be increased
-const increaseTime = (val) => {
-  time = time + val;
+  // reset it if it was the password field
+  state.isPassword = false;
+  $textField.type = 'text';
+
+  // randomly, make the field a password field so users can't see what's going on
+  const r = Math.floor(Math.random() * 2);
+  if (r === 0) {
+    state.isPassword = true;
+    $textField.type = 'password';
+  }
 };
 
 const endGame = () => {
   // reset timer
   clearInterval(interval);
 
-  inGame = false;
+  state.inGame = false;
 
   // show start text and change text
   show($startText);
@@ -126,14 +135,17 @@ const endGame = () => {
 
   // check if score more than highscore
   const highscore = getHighscore();
-  if (score > highscore) {
+  if (state.score > highscore) {
     console.log('high score has been beaten!');
     // set new highscore
-    $highscore.innerText = score;
-    setHighscore(score);
+    $highscore.innerText = state.score;
+    setHighscore(state.score);
   }
 
-  hide($currentWord);
+  // reset field if it was password field
+  state.isPassword = false;
+  $textField.type = 'text';
 
+  hide($currentWord);
   show($footer);
 };

@@ -1,9 +1,7 @@
-const hide = (elem) => {
+export const hide = (elem) => {
   elem.style.display = 'none';
 };
 
-const show = (elem) => {
+export const show = (elem) => {
   elem.style.display = 'block';
 };
-
-export { hide, show };
