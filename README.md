@@ -36,6 +36,9 @@ To build the app, run
 npm run build
 ```
 
+#### Firebase
+- to be added ...
+
 #### Hosting
 
 The game is hosted with Vercel. To host a debug version of the app, run
