@@ -1,3 +1,5 @@
+@import "variables.scss";
+
 button {
   border: none;
 
@@ -6,5 +8,23 @@ button {
   }
   &.red {
     background-color: red;
+  }
+}
+
+input[type=text], input[type=password] {
+  padding: 0.5em;
+  border-radius: 0.2em;
+
+  border: 2px solid $input-border;
+  background-color: $input-bg;
+
+  color: $input-text;
+  letter-spacing: 0.2em;
+
+  width: 100%;
+
+  &:focus {
+    outline: none;
+    border: 2px solid #000075;
   }
 }
