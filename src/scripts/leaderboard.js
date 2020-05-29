@@ -3,6 +3,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 import { hide } from './utils.js';
+import { getUsername } from './highscore.js';
 
 const $loding = document.getElementById('loading');
 const $scoreList = document.getElementById('score_list');
@@ -23,8 +24,15 @@ window.addEventListener('load', async () => {
 
   // create the list elements
   let elem = '';
+  const username = getUsername(); // get username so it can be highlighted
   scores.forEach((s) => {
-    elem += `<li> ${s.username}: ${s.score} </li>`;
+    if (s.username === username) {
+      elem += `<li style="color: white;">
+        ${s.username}: ${s.score}
+      </li>`;
+    } else {
+      elem += `<li> ${s.username}: ${s.score} </li>`;
+    }
   });
   $scoreList.innerHTML = elem;
 });
