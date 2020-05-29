@@ -1,5 +1,5 @@
 import { hide } from './utils';
-import { getHighscore } from './highscore.js';
+import { getHighscore, getDocRef, saveDocRef, saveUsername } from './highscore.js';
 
 import { app } from './firebase.js';
 import firebase from 'firebase/app';
@@ -41,16 +41,11 @@ $sendButton.onclick = () => {
       saveDocRef(docId);
     });
   }
+
+  // also save username locally
+  saveUsername(username);
 };
 
 $cancelButton.onclick = () => {
   hide($leaderboards);
-};
-
-const saveDocRef = (docId) => {
-  localStorage.setItem('doc_id', docId);
-};
-const getDocRef = () => {
-  const docId = localStorage.getItem('doc_id') || null;
-  return docId;
 };
