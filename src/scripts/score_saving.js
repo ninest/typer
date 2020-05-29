@@ -9,7 +9,7 @@ const $leaderboards = document.getElementById('score_saver');
 const $sendButton = document.getElementById('send');
 const $cancelButton = document.getElementById('cancel');
 
-$sendButton.onclick = () => {
+$sendButton.onclick = async () => {
   // send high score
   const username = prompt('Enter a username: ');
   const score = getHighscore();
@@ -22,7 +22,7 @@ $sendButton.onclick = () => {
   if (prevDocRef != null) {
     // use the exisiting doc id
     console.log('use exisiting doc id');
-    highscoresCollection.doc(prevDocRef).set({
+    await highscoresCollection.doc(prevDocRef).set({
       username: username,
       score: score,
       timestamp: timestamp
@@ -30,7 +30,7 @@ $sendButton.onclick = () => {
   } else {
     // generate a doc for the user
     console.log('gen new doc for user');
-    highscoresCollection.add({
+    await highscoresCollection.add({
       username: username,
       score: score,
       timestamp: timestamp
@@ -44,6 +44,9 @@ $sendButton.onclick = () => {
 
   // also save username locally
   saveUsername(username);
+
+  // redirect to leaderboards page
+  window.location = 'leaderboards.html';
 };
 
 $cancelButton.onclick = () => {
