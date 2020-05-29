@@ -1,51 +1,40 @@
-import { hide } from './utils';
-import { getHighscore, getDocRef, saveDocRef, saveUsername } from './highscore.js';
-
 import { app } from './firebase.js';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-const $leaderboards = document.getElementById('score_saver');
-const $sendButton = document.getElementById('send');
-const $cancelButton = document.getElementById('cancel');
+import { hide } from './utils.js';
 
-$sendButton.onclick = () => {
-  // send high score
-  const username = prompt('Enter a username: ');
-  const score = getHighscore();
-  const timestamp = new Date().getTime();
+const $loding = document.getElementById('loading');
+const $scoreList = document.getElementById('score_list');
 
-  const db = firebase.firestore(app);
-  const highscoresCollection = db.collection('highscores');
-  // check if a doc id exists
-  const prevDocRef = getDocRef();
-  if (prevDocRef != null) {
-    // use the exisiting doc id
-    console.log('use exisiting doc id');
-    highscoresCollection.doc(prevDocRef).set({
-      username: username,
-      score: score,
-      timestamp: timestamp
+const db = firebase.firestore(app);
+const highscoresCollection = db.collection('highscores');
+let scores = [];
+
+window.addEventListener('load', async () => {
+  // when document loads, get all high scores and populate an array
+  scores = await getScores();
+
+  // sort that array
+  scores.sort((a, b) => (a.score < b.score) ? 1 : -1);
+
+  // hide the loading indicator
+  hide($loding);
+
+  // create the list elements
+  let elem = '';
+  scores.forEach((s) => {
+    elem += `<li> ${s.username}: ${s.score} </li>`;
+  });
+  $scoreList.innerHTML = elem;
+});
+
+const getScores = async () => {
+  const s = [];
+  await highscoresCollection.get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      s.push(doc.data());
     });
-  } else {
-    // generate a doc for the user
-    console.log('gen new doc for user');
-    highscoresCollection.add({
-      username: username,
-      score: score,
-      timestamp: timestamp
-    }).then((docRef) => {
-      // save this doc id for saving the score the next time
-      const docId = docRef.id;
-      console.log(docId);
-      saveDocRef(docId);
-    });
-  }
-
-  // also save username locally
-  saveUsername(username);
-};
-
-$cancelButton.onclick = () => {
-  hide($leaderboards);
+  });
+  return s;
 };

@@ -7,9 +7,11 @@ block body
     a(href="/").back back
 
     article
-      
+      #loading Loading ... 
+      ol#score_list
 
 block script
+  script(src="~/scripts/leaderboard.js")
 
 block styles
   link(rel="stylesheet", href="~/styles/index.scss")

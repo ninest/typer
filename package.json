@@ -9,6 +9,9 @@
     "build-sw": "workbox generateSW workbox-config.js",
     "clean": "rimraf ./public && rimraf ./dist && rimraf ./.cache"
   },
+  "browserslist": [
+    "last 1 Chrome versions"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",

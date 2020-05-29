@@ -37,7 +37,7 @@ window.addEventListener('load', () => {
   // only show score display when game starts
   hide($scoreWrapper);
   // don't show leaderboard unless new highscore
-  // hide($leaderboards);
+  hide($leaderboards);
 });
 
 const textFieldUpdate = () => {
