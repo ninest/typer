@@ -1,5 +1,5 @@
 import { hide } from './utils';
-import { getHighscore, getDocRef, saveDocRef, saveUsername } from './highscore.js';
+import { getHighscore, getDocRef, saveDocRef, saveUsername, getUsername } from './highscore.js';
 
 import { app } from './firebase.js';
 import firebase from 'firebase/app';
@@ -11,7 +11,12 @@ const $cancelButton = document.getElementById('cancel');
 
 $sendButton.onclick = async () => {
   // send high score
-  const username = prompt('Enter a username: ');
+  let username = getUsername();
+  if (username == null) {
+    username = prompt('Enter a username: ');
+    // also save username locally
+    saveUsername(username);
+  }
   const score = getHighscore();
   const timestamp = new Date().getTime();
 
@@ -41,9 +46,6 @@ $sendButton.onclick = async () => {
       saveDocRef(docId);
     });
   }
-
-  // also save username locally
-  saveUsername(username);
 
   // redirect to leaderboards page
   window.location = 'leaderboards.html';
