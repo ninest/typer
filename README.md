@@ -37,7 +37,25 @@ npm run build
 ```
 
 #### Firebase
-- to be added ...
+First go to the Firebase console and create a new project. In `src/scripts/`, add `firebase.js` and paste the following:
+
+```
+import firebase from 'firebase/app';
+
+const firebaseConfig = {
+  apiKey: '',
+  authDomain: '',
+  databaseURL: '',
+  projectId: '',
+  storageBucket: '',
+  messagingSenderId: '',
+  appId: '',
+  measurementId: ''
+};
+export const app = firebase.initializeApp(firebaseConfig);
+```
+
+Fill up your details accordingly. Find these details on the Firebase console.
 
 #### Hosting
 
