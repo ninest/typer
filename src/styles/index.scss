@@ -84,7 +84,23 @@ body {
       }
     }
 
-    
+    #score_saver {
+      margin-top: 3.5em;
+      .ann {
+        font-size: 1.3em;
+        margin-bottom: 0.5em;
+      }
+      label {
+        display: block;
+        color: #aaa;
+        font-size: 0.9em;
+        margin-bottom: 1em;
+      }
+      .buttons {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
 
     .var-name {
       color: white;

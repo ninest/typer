@@ -1,0 +1,10 @@
+button {
+  border: none;
+
+  &.blue {
+    background-color: blue
+  }
+  &.red {
+    background-color: red;
+  }
+}
