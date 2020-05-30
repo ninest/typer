@@ -46,7 +46,7 @@ npm run build
 ### Firebase
 First go to the Firebase console and create a new project. In `src/scripts/`, add `firebase.js` and paste the following:
 
-```
+```js
 import firebase from 'firebase/app';
 
 const firebaseConfig = {
@@ -61,11 +61,17 @@ const firebaseConfig = {
 };
 
 export const app = firebase.initializeApp(firebaseConfig);
+
+firebase.auth().signInAnonymously().then(() => {
+  console.log('anonymous sign in successful');
+}).catch((err) => {
+  console.log('error in sign in: ', err);
+});
 ```
 
 Fill up your details accordingly. Find these details on the Firebase console.
 
-After this, go to the "Authentication" tab and enable anonymous sign in. 
+After this, go to the "Authentication" tab and enable anonymous sign in. Authentication is required to read and write the database.
 
 ### Hosting
 
