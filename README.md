@@ -66,6 +66,8 @@ export const app = firebase.initializeApp(firebaseConfig);
 
 Fill up your details accordingly. Find these details on the Firebase console.
 
+After this, go to the "Authentication" tab and enable anonymous sign in. 
+
 #### Hosting
 
 The game is hosted with Vercel. To host a debug version of the app, run
