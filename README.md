@@ -80,6 +80,19 @@ In `src/scripts/`, create `keys.html` with the following:
 export const key = 'a secret key';
 ```
 
+Here's one way to generate a ranom string:
+
+```python
+# python
+from base64 import b64encode
+from os import urandom
+
+random_bytes = urandom(32)
+secret = b64encode(random_bytes).decode('utf-8')
+
+print(secret)
+```
+
 ### Hosting
 
 The game is hosted with Vercel. To host a debug version of the app, run
