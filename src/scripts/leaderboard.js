@@ -12,29 +12,34 @@ const db = firebase.firestore(app);
 const highscoresCollection = db.collection('highscores');
 let scores = [];
 
-window.addEventListener('load', async () => {
-  // when document loads, get all high scores and populate an array
-  scores = await getScores();
+window.addEventListener('load', () => {
+  // wait for anonynmous sign in
+  firebase.auth().onAuthStateChanged(async (user) => {
+    if (user) {
+      // when document loads, get all high scores and populate an array
+      scores = await getScores();
 
-  // sort that array
-  scores.sort((a, b) => (a.score < b.score) ? 1 : -1);
+      // sort that array
+      scores.sort((a, b) => (a.score < b.score) ? 1 : -1);
 
-  // hide the loading indicator
-  hide($loding);
+      // hide the loading indicator
+      hide($loding);
 
-  // create the list elements
-  let elem = '';
-  const username = getUsername(); // get username so it can be highlighted
-  scores.forEach((s) => {
-    if (s.username === username) {
-      elem += `<li style="color: white;">
-        ${s.username}: ${s.score}
-      </li>`;
-    } else {
-      elem += `<li> ${s.username}: ${s.score} </li>`;
+      // create the list elements
+      let elem = '';
+      const username = getUsername(); // get username so it can be highlighted
+      scores.forEach((s) => {
+        if (s.username === username) {
+          elem += `<li style="color: white;">
+      ${s.username}: ${s.score}
+    </li>`;
+        } else {
+          elem += `<li> ${s.username}: ${s.score} </li>`;
+        }
+      });
+      $scoreList.innerHTML = elem;
     }
   });
-  $scoreList.innerHTML = elem;
 });
 
 const getScores = async () => {

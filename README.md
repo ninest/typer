@@ -21,6 +21,14 @@
 
 You now have **10 seconds** to type out all the words displayed. For every word you type correctly, your score increases, and you also get **1 extra second**. Can you beat my highscore of 16? (you probably can)
 
+## 🚀 Features
+- 10 seconds to type
+  - Get an extra second for each word typed (small change of getting 2 seconds)
+  - Randomly get a password field to spice the game up (1/6 chance)
+- Save your highscore locally
+- Save your highscore in the leaderboards to compete with others
+  - leaderboards should reset every 2 weeks (not implemented yet)
+
 ## 🛠 Build setup
 ### Web
 Clone or fork the repository, then run the commands to start the development server:
@@ -52,6 +60,7 @@ const firebaseConfig = {
   appId: '',
   measurementId: ''
 };
+
 export const app = firebase.initializeApp(firebaseConfig);
 ```
 

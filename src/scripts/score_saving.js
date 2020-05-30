@@ -4,6 +4,7 @@ import { getHighscore, getDocRef, saveDocRef, saveUsername, getUsername } from '
 import { app } from './firebase.js';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/auth';
 
 const $leaderboards = document.getElementById('score_saver');
 const $sendButton = document.getElementById('send');
@@ -11,6 +12,7 @@ const $cancelButton = document.getElementById('cancel');
 
 $sendButton.onclick = async () => {
   // send high score
+
   let username = getUsername();
   if (username == null) {
     username = prompt('Enter a username: ');
