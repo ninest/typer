@@ -29,12 +29,21 @@ window.addEventListener('load', () => {
       let elem = '';
       const username = getUsername(); // get username so it can be highlighted
       scores.forEach((s) => {
-        if (s.username === username) {
-          elem += `<li style="color: white;">
-            ${s.username}: ${s.score}
-          </li>`;
+        if (s.score > 750) {
+          // make "hackers" think they are winning
+          if (s.username === username) {
+            elem += `<li style="color: white;">
+              ${s.username}: ${s.score}
+            </li>`;
+          }
         } else {
-          elem += `<li> ${s.username}: ${s.score} </li>`;
+          if (s.username === username) {
+            elem += `<li style="color: white;">
+              ${s.username}: ${s.score}
+            </li>`;
+          } else {
+            elem += `<li> ${s.username}: ${s.score} </li>`;
+          }
         }
       });
       $scoreList.innerHTML = elem;
