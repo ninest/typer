@@ -1,5 +1,6 @@
 import { hide } from './utils';
 import { getHighscore, getDocRef, saveDocRef, saveUsername, getUsername } from './highscore.js';
+import words from '~/assets/words.yml';
 
 import { app } from './firebase.js';
 import firebase from 'firebase/app';
@@ -14,8 +15,12 @@ $sendButton.onclick = async () => {
   // send high score
 
   let username = getUsername();
-  if (username == null) {
+  if (username == null || username === '') {
     username = prompt('Enter a username: ');
+    // if username is still null, generate a random one
+    const u1 = words[Math.floor(Math.random() * words.length)];
+    const u2 = words[Math.floor(Math.random() * words.length)];
+    username = `${u1}_${u2}`;
     // also save username locally
     saveUsername(username);
   }

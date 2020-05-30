@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
 
   $textField.focus();
   $textField.oninput = textFieldUpdate;
-  $textField.placeholder = 'type "start"';
+  $textField.placeholder = '"start"';
 
   $highscore.innerText = getHighscore();
 
