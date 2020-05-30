@@ -74,7 +74,7 @@ Fill up your details accordingly. Find these details on the Firebase console.
 After this, go to the "Authentication" tab and enable anonymous sign in. Authentication is required to read and write the database.
 
 ### Encryption
-In `src/scripts/`, create `keys.html` with the following:
+In `src/scripts/`, create `keys.js` with the following:
 
 ```js
 export const key = 'a secret key';
