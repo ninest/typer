@@ -26,7 +26,12 @@ $sendButton.onclick = async () => {
     // also save username locally
     saveUsername(username);
   }
-  const score = getHighscore();
+  // remove html tags
+  const div = document.createElement('div');
+  div.innerHTML = username;
+  username = div.innerText;
+
+  const score = parseInt(getHighscore()) || 0;
   const timestamp = new Date().getTime();
 
   const db = firebase.firestore(app);
