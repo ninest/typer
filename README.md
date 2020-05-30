@@ -30,7 +30,6 @@ You now have **10 seconds** to type out all the words displayed. For every word 
   - leaderboards should reset every 2 weeks (not implemented yet)
 
 ## 🛠 Build setup
-### Web
 Clone or fork the repository, then run the commands to start the development server:
 
 ```
@@ -44,7 +43,7 @@ To build the app, run
 npm run build
 ```
 
-#### Firebase
+### Firebase
 First go to the Firebase console and create a new project. In `src/scripts/`, add `firebase.js` and paste the following:
 
 ```
@@ -68,7 +67,7 @@ Fill up your details accordingly. Find these details on the Firebase console.
 
 After this, go to the "Authentication" tab and enable anonymous sign in. 
 
-#### Hosting
+### Hosting
 
 The game is hosted with Vercel. To host a debug version of the app, run
 
@@ -80,12 +79,6 @@ To host the production version of the app, run
 
 ```
 now --prod
-```
-
-### Desktop
-Run the app on desktop with
-```
-deno run -A --unstable https://raw.githubusercontent.com/ninest/web-window/master/index.ts open https://typerapp.now.sh
 ```
 
 ## ♥️ Support
