@@ -31,8 +31,8 @@ window.addEventListener('load', () => {
       scores.forEach((s) => {
         if (s.username === username) {
           elem += `<li style="color: white;">
-      ${s.username}: ${s.score}
-    </li>`;
+            ${s.username}: ${s.score}
+          </li>`;
         } else {
           elem += `<li> ${s.username}: ${s.score} </li>`;
         }

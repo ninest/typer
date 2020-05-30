@@ -159,7 +159,10 @@ const endGame = () => {
     $highscore.innerText = state.score;
     setHighscore(state.score);
 
-    show($leaderboards);
+    // only show leaderboards thing if score more than 10
+    if (state.score > 10) {
+      show($leaderboards);
+    }
   }
 
   // reset field if it was password field
