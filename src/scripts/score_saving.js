@@ -18,9 +18,11 @@ $sendButton.onclick = async () => {
   if (username == null || username === '') {
     username = prompt('Enter a username: ');
     // if username is still null, generate a random one
-    const u1 = words[Math.floor(Math.random() * words.length)];
-    const u2 = words[Math.floor(Math.random() * words.length)];
-    username = `${u1}_${u2}`;
+    if (username == null || username === '') {
+      const u1 = words[Math.floor(Math.random() * words.length)];
+      const u2 = words[Math.floor(Math.random() * words.length)];
+      username = `${u1}_${u2}`;
+    }
     // also save username locally
     saveUsername(username);
   }
