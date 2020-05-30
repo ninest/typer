@@ -1,5 +1,5 @@
 import { hide } from './utils';
-import { getHighscore, getDocRef, saveDocRef, saveUsername, getUsername } from './highscore.js';
+import { getHighscore, getDocRef, saveDocRef, saveUsername, getUsername, sanitize } from './highscore.js';
 import words from '~/assets/words.yml';
 
 import { app } from './firebase.js';
@@ -27,9 +27,7 @@ $sendButton.onclick = async () => {
     saveUsername(username);
   }
   // remove html tags
-  const div = document.createElement('div');
-  div.innerHTML = username;
-  username = div.innerText;
+  username = sanitize(username);
 
   const score = parseInt(getHighscore()) || 0;
   const timestamp = new Date().getTime();
@@ -42,7 +40,7 @@ $sendButton.onclick = async () => {
     // use the exisiting doc id
     console.log('use exisiting doc id');
     await highscoresCollection.doc(prevDocRef).set({
-      username: username,
+      username: sanitize(username),
       score: score,
       timestamp: timestamp
     });
@@ -50,7 +48,7 @@ $sendButton.onclick = async () => {
     // generate a doc for the user
     console.log('gen new doc for user');
     await highscoresCollection.add({
-      username: username,
+      username: sanitize(username),
       score: score,
       timestamp: timestamp
     }).then((docRef) => {

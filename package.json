@@ -32,7 +32,6 @@
     "crypto-js": "^4.0.0",
     "devtools-detect": "^3.0.0",
     "firebase": "^7.14.5",
-    "keys.js": "^1.0.2",
     "parcel-plugin-inliner": "^1.0.14"
   }
 }

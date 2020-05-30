@@ -31,13 +31,19 @@ export const getDocRef = () => {
 // saving username locally
 export const saveUsername = (username) => {
   // remove html tags
-  const div = document.createElement('div');
-  div.innerHTML = username;
-  username = div.innerText;
+  username = sanitize(username);
   localStorage.setItem('username', username);
 };
 
 export const getUsername = () => {
   const username = localStorage.getItem('username') || null;
   return username;
+};
+
+// sansitize
+export const sanitize = (text) => {
+  const div = document.createElement('div');
+  div.innerHTML = text;
+  text = div.innerText;
+  return text;
 };

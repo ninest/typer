@@ -3,7 +3,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 import { hide } from './utils.js';
-import { getUsername } from './highscore.js';
+import { getUsername, sanitize } from './highscore.js';
 
 const $loding = document.getElementById('loading');
 const $scoreList = document.getElementById('score_list');
@@ -33,16 +33,16 @@ window.addEventListener('load', () => {
           // make "hackers" think they are winning
           if (s.username === username) {
             elem += `<li style="color: white;">
-              ${s.username}: ${s.score}
+              ${sanitize(s.username)}: ${sanitize(s.score)}
             </li>`;
           }
         } else {
           if (s.username === username) {
             elem += `<li style="color: white;">
-              ${s.username}: ${s.score}
+              ${sanitize(s.username)}: ${sanitize(s.score)}
             </li>`;
           } else {
-            elem += `<li> ${s.username}: ${s.score} </li>`;
+            elem += `<li> ${sanitize(s.username)}: ${sanitize(s.score)} </li>`;
           }
         }
       });
