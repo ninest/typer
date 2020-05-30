@@ -1,7 +1,5 @@
-// import { key } from 'keys.js';
+import { key } from './keys.js';
 var CryptoJS = require('crypto-js');
-
-const key = '48ywtreuhigsre89w754ehbjksn';
 
 // saving scores locally
 export const getHighscore = () => {
