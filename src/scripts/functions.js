@@ -1,5 +1,6 @@
 import { key } from './keys.js';
-var CryptoJS = require('crypto-js');
+// var CryptoJS = require('crypto-js');
+import { AES, enc } from 'crypto-js';
 
 // saving scores locally
 export const getHighscore = () => {
@@ -21,13 +22,13 @@ export const setHighscore = (val) => {
 
 // crypto
 export const encrypt = (text) => {
-  const ciphertext = CryptoJS.AES.encrypt(text.toString(), key).toString();
+  const ciphertext = AES.encrypt(text.toString(), key).toString();
   return ciphertext;
 };
 
 export const decrypt = (ciphertext) => {
-  const bytes = CryptoJS.AES.decrypt(ciphertext, key);
-  const original = bytes.toString(CryptoJS.enc.Utf8);
+  const bytes = AES.decrypt(ciphertext, key);
+  const original = bytes.toString(enc.Utf8);
   return original;
 };
 

@@ -1,5 +1,5 @@
 import 'devtools-detect';
-import { setHighscore } from './highscore.js';
+import { setHighscore } from './functions.js';
 
 // initial check for webdriver, possible automation
 if (navigator.webdriver === true) {

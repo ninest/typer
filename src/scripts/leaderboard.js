@@ -3,7 +3,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 import { hide } from './utils.js';
-import { getUsername, sanitize, decrypt } from './highscore.js';
+import { getUsername, sanitize, decrypt } from './functions.js';
 
 const $loding = document.getElementById('loading');
 const $scoreList = document.getElementById('score_list');

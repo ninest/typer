@@ -1,5 +1,5 @@
 import { hide } from './utils';
-import { getHighscore, getDocRef, saveDocRef, saveUsername, getUsername, sanitize, encrypt } from './highscore.js';
+import { getHighscore, getDocRef, saveDocRef, saveUsername, getUsername, sanitize, encrypt } from './functions.js';
 import words from '~/assets/words.yml';
 
 import { app } from './firebase.js';

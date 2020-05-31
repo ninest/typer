@@ -1,4 +1,4 @@
-import { getHighscore, setHighscore } from './highscore.js';
+import { getHighscore, setHighscore } from './functions.js';
 import { show, hide } from './utils.js';
 import words from '~/assets/words.yml';
 
