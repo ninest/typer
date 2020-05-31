@@ -55,10 +55,10 @@ export const getUsername = () => {
 
 // sansitize
 export const sanitize = (text) => {
-  text = text.toString().split('&').join('');
-  text = text.toString().split(':').join('');
   const div = document.createElement('div');
   div.innerHTML = text;
   text = div.innerText;
+  text = text.toString().split('<').join('');
+  text = text.toString().split('>').join('');
   return text;
 };
