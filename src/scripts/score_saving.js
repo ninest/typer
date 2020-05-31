@@ -1,5 +1,5 @@
 import { hide } from './utils';
-import { getHighscore, getDocRef, saveDocRef, saveUsername, getUsername, sanitize } from './highscore.js';
+import { getHighscore, getDocRef, saveDocRef, saveUsername, getUsername, sanitize, encrypt } from './highscore.js';
 import words from '~/assets/words.yml';
 
 import { app } from './firebase.js';
@@ -41,15 +41,14 @@ $sendButton.onclick = async () => {
     console.log('use exisiting doc id');
     await highscoresCollection.doc(prevDocRef).set({
       username: sanitize(username),
-      score: score,
+      score: encrypt(score),
       timestamp: timestamp
     });
   } else {
     // generate a doc for the user
-    console.log('gen new doc for user');
     await highscoresCollection.add({
       username: sanitize(username),
-      score: score,
+      score: encrypt(score),
       timestamp: timestamp
     }).then((docRef) => {
       // save this doc id for saving the score the next time

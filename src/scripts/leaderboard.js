@@ -3,7 +3,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 import { hide } from './utils.js';
-import { getUsername, sanitize } from './highscore.js';
+import { getUsername, sanitize, decrypt } from './highscore.js';
 
 const $loding = document.getElementById('loading');
 const $scoreList = document.getElementById('score_list');
@@ -55,7 +55,11 @@ const getScores = async () => {
   const s = [];
   await highscoresCollection.get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
-      s.push(doc.data());
+      s.push({
+        username: doc.data().username,
+        highscore: decrypt(doc.data().highscore),
+        timestamp: doc.data().timestamp
+      });
     });
   });
   return s;

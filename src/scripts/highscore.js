@@ -3,11 +3,11 @@ var CryptoJS = require('crypto-js');
 
 // saving scores locally
 export const getHighscore = () => {
-  const ciphertext = localStorage.getItem('highscore') || null;
   let highscore;
   try {
-    const bytes = CryptoJS.AES.decrypt(ciphertext, key);
-    highscore = parseInt(bytes.toString(CryptoJS.enc.Utf8)) || 0;
+    highscore = parseInt(decrypt(
+      localStorage.getItem('highscore'), key
+    )) || 0;
   } catch {
     highscore = 0;
   }
@@ -15,8 +15,20 @@ export const getHighscore = () => {
 };
 
 export const setHighscore = (val) => {
-  const ciphertext = CryptoJS.AES.encrypt(val.toString(), key).toString();
+  const ciphertext = encrypt(val);
   localStorage.setItem('highscore', ciphertext);
+};
+
+// crypto
+export const encrypt = (text) => {
+  const ciphertext = CryptoJS.AES.encrypt(text.toString(), key).toString();
+  return ciphertext;
+};
+
+export const decrypt = (ciphertext) => {
+  const bytes = CryptoJS.AES.decrypt(ciphertext, key);
+  const original = bytes.toString(CryptoJS.enc.Utf8);
+  return original;
 };
 
 // savign document id for firebase highscore
