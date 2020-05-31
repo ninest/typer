@@ -5,6 +5,7 @@ import words from '~/assets/words.yml';
 import { app } from './firebase.js';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/database';
 import 'firebase/auth';
 
 const $leaderboards = document.getElementById('score_saver');
@@ -30,7 +31,9 @@ $sendButton.onclick = async () => {
   username = sanitize(username);
 
   const score = parseInt(getHighscore()) || 0;
+
   const timestamp = new Date().getTime();
+  // const timestamp = firebase.database.ServerValue.TIMESTAMP;
 
   const db = firebase.firestore(app);
   const highscoresCollection = db.collection('highscores');
@@ -38,7 +41,6 @@ $sendButton.onclick = async () => {
   const prevDocRef = getDocRef();
   if (prevDocRef != null) {
     // use the exisiting doc id
-    console.log('use exisiting doc id');
     await highscoresCollection.doc(prevDocRef).set({
       username: sanitize(username),
       score: encrypt(score),

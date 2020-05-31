@@ -57,7 +57,7 @@ const getScores = async () => {
     querySnapshot.forEach((doc) => {
       s.push({
         username: doc.data().username,
-        highscore: decrypt(doc.data().highscore),
+        score: parseInt(decrypt(doc.data().score)) || 0,
         timestamp: doc.data().timestamp
       });
     });
