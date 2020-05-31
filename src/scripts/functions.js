@@ -55,6 +55,7 @@ export const getUsername = () => {
 
 // sansitize
 export const sanitize = (text) => {
+  text = text.toString().replace('&', '');
   const div = document.createElement('div');
   div.innerHTML = text;
   text = div.innerText;
