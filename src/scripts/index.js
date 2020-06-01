@@ -161,7 +161,7 @@ const endGame = () => {
 
     // only show leaderboards thing if score more than 10
     if (state.score > 10) {
-      show($leaderboards);
+      // show($leaderboards);
     }
   }
 
