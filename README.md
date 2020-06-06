@@ -26,8 +26,6 @@ You now have **10 seconds** to type out all the words displayed. For every word 
   - Get an extra second for each word typed (small change of getting 2 seconds)
   - Randomly get a password field to spice the game up (1/6 chance)
 - Save your highscore locally
-- Save your highscore in the leaderboards to compete with others
-  - leaderboards should reset every 2 weeks (not implemented yet)
 
 ## 🛠 Build setup
 Clone or fork the repository, then run the commands to start the development server:
@@ -42,36 +40,6 @@ To build the app, run
 ```
 npm run build
 ```
-
-### Firebase
-First go to the Firebase console and create a new project. In `src/scripts/`, add `firebase.js` and paste the following:
-
-```js
-import firebase from 'firebase/app';
-
-const firebaseConfig = {
-  apiKey: '',
-  authDomain: '',
-  databaseURL: '',
-  projectId: '',
-  storageBucket: '',
-  messagingSenderId: '',
-  appId: '',
-  measurementId: ''
-};
-
-export const app = firebase.initializeApp(firebaseConfig);
-
-firebase.auth().signInAnonymously().then(() => {
-  console.log('anonymous sign in successful');
-}).catch((err) => {
-  console.log('error in sign in: ', err);
-});
-```
-
-Fill up your details accordingly. Find these details on the Firebase console.
-
-After this, go to the "Authentication" tab and enable anonymous sign in. Authentication is required to read and write the database.
 
 ### Encryption
 In `src/scripts/`, create `keys.js` with the following:
@@ -106,6 +74,9 @@ To host the production version of the app, run
 ```
 now --prod
 ```
+
+### ~~Firebase~~
+Firebase and leaderboards have been removed. Please check the "firebase" branch for more details.
 
 ## ♥️ Support
 If you liked this project, consider supporting by
