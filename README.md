@@ -1,4 +1,4 @@
-You are in the Firebase branch. Firebase and leaderboards functionality was removed. Cheating and XSS attacks are okay to an extend, but racism and discriminatory language in usernames is not. I know there are easy ways to handle this, but I ended up spending too much time on leaderboards and database functionality.
+You are in the Firebase branch. Firebase and leaderboards functionality was removed. Cheating and XSS attacks are okay to an extend, but racism and discriminatory language in usernames is not. I know there are easy ways to handle this, but I ended up spending too much time on leaderboards and database functionality, while I only hoped this would be a simple game to improve my vanilla JS.
 
 Thank you to everyone who participated.
 
