@@ -32,15 +32,6 @@ export const decrypt = (ciphertext) => {
   return original;
 };
 
-// savign document id for firebase highscore
-export const saveDocRef = (docId) => {
-  localStorage.setItem('doc_id', docId);
-};
-export const getDocRef = () => {
-  const docId = localStorage.getItem('doc_id') || null;
-  return docId;
-};
-
 // saving username locally
 export const saveUsername = (username) => {
   // remove html tags
