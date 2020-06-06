@@ -1,3 +1,7 @@
+You are in the Firebase branch. Firebase and leaderboards functionality was removed. Cheating and XSS attacks are okay to an extend, but racism and discriminatory language in usernames is not. I know there are easy ways to handle this, but I ended up spending too much time on leaderboard database and leaderboard and database functionality.
+
+Thank you to everyone who participated.
+
 <h1 align="center"><a href="https://typerapp.now.sh/">⌨️ Typer</a></h1>
 
 <p align="center">The 10-second typing game</p>
