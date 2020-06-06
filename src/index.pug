@@ -29,14 +29,6 @@ block body
         span(id="highscore") 0
         span.semi ;
     
-    div(id='score_saver')
-      .ann New high score!
-      label Send score to leaderboards?
-      //- input(type="text" placeholder="enter username")
-
-      .buttons
-        button.red#cancel cancel
-        button.blue#send send
 
     footer#footer
       a(href="help.pug") help
@@ -45,7 +37,6 @@ block body
 
 block script
   script(src="~/scripts/index.js")
-  script(src="~/scripts/score_saving.js")
 
 block styles
   link(rel="stylesheet", href="~/styles/index.scss")

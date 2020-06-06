@@ -9,7 +9,6 @@ const $time = document.getElementById('time');
 const $scoreWrapper = document.getElementById('score_wrapper');
 const $score = document.getElementById('score');
 const $highscore = document.getElementById('highscore');
-const $leaderboards = document.getElementById('score_saver');
 const $footer = document.getElementById('footer');
 
 const state = {
@@ -36,8 +35,6 @@ window.addEventListener('load', () => {
   hide($currentWord);
   // only show score display when game starts
   hide($scoreWrapper);
-  // don't show leaderboard unless new highscore
-  hide($leaderboards);
 });
 
 const textFieldUpdate = () => {
@@ -74,7 +71,6 @@ const startGame = () => {
   hide($startText);
 
   show($scoreWrapper);
-  hide($leaderboards);
 
   hide($footer);
 
@@ -158,11 +154,6 @@ const endGame = () => {
     // set new highscore
     $highscore.innerText = state.score;
     setHighscore(state.score);
-
-    // only show leaderboards thing if score more than 10
-    if (state.score > 10) {
-      // show($leaderboards);
-    }
   }
 
   // reset field if it was password field
