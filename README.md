@@ -76,7 +76,7 @@ now --prod
 ```
 
 ### ~~Firebase~~
-Firebase and leaderboards have been removed. Please check the "firebase" branch for more details.
+Firebase and leaderboards have been removed. Please check the ["firebase" branch](https://github.com/ninest/typer/tree/firebase) for more details.
 
 ## ♥️ Support
 If you liked this project, consider supporting by
