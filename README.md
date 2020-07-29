@@ -48,7 +48,7 @@ In `src/scripts/`, create `keys.js` with the following:
 export const key = 'a secret key';
 ```
 
-Here's one way to generate a ranom string:
+Here's one way to generate a random string:
 
 ```python
 # python
