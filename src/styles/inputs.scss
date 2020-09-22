@@ -5,7 +5,7 @@ button {
   border: none;
 
   &.blue {
-    background-color: blue
+    background-color: blue;
   }
   &.red {
     background-color: red;
@@ -23,7 +23,8 @@ a.back {
 }
 
 // text input
-input[type=text], input[type=password] {
+input[type="text"],
+input[type="password"] {
   padding: 0.5em;
   // border-radius: 0.2em;
 

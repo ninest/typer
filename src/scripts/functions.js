@@ -1,13 +1,14 @@
-import { key } from './keys.js';
+import { key } from "./keys.js";
 // var CryptoJS = require('crypto-js');
-import { AES, enc } from 'crypto-js';
+import { AES, enc } from "crypto-js";
 
 // saving scores locally
 export const getHighscore = () => {
   let highscore;
   try {
     highscore = parseInt(decrypt(
-      localStorage.getItem('highscore'), key
+      localStorage.getItem("highscore"),
+      key,
     )) || 0;
   } catch {
     highscore = 0;
@@ -17,7 +18,7 @@ export const getHighscore = () => {
 
 export const setHighscore = (val) => {
   const ciphertext = encrypt(val);
-  localStorage.setItem('highscore', ciphertext);
+  localStorage.setItem("highscore", ciphertext);
 };
 
 // crypto
@@ -36,20 +37,20 @@ export const decrypt = (ciphertext) => {
 export const saveUsername = (username) => {
   // remove html tags
   username = sanitize(username);
-  localStorage.setItem('username', username);
+  localStorage.setItem("username", username);
 };
 
 export const getUsername = () => {
-  const username = localStorage.getItem('username') || null;
+  const username = localStorage.getItem("username") || null;
   return username;
 };
 
 // sansitize
 export const sanitize = (text) => {
-  const div = document.createElement('div');
+  const div = document.createElement("div");
   div.innerHTML = text;
   text = div.innerText;
-  text = text.toString().split('<').join('');
-  text = text.toString().split('>').join('');
+  text = text.toString().split("<").join("");
+  text = text.toString().split(">").join("");
   return text;
 };
