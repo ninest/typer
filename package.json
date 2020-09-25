@@ -4,8 +4,9 @@
   "description": "A game to see how fast you can type",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run clean && parcel src/index.pug",
-    "build": "npm run clean && parcel build src/index.pug --out-dir public && npm run build-sw",
+    "watch": "npm run clean && parcel watch src/index.pug",
+    "dev": "concurrently \"npm run watch\" \"http-server dist/\"",
+    "build": "npm run clean && parcel build src/index.pug src/module/index.html src/module/one.html --out-dir public && npm run build-sw",
     "build-sw": "workbox generateSW workbox-config.js",
     "clean": "rimraf ./public && rimraf ./dist && rimraf ./.cache"
   },
@@ -16,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "concurrently": "^5.3.0",
     "eslint": "^7.0.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.20.2",
