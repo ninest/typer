@@ -5,7 +5,7 @@ footer {
   bottom: 0;
 
   opacity: 0.8;
-  display: flex;;
+  display: flex;
 
   padding-bottom: 2em;
 
@@ -17,13 +17,13 @@ footer {
     opacity: 0.5;
     color: inherit;
     &:hover {
-      opacity: 1.0;
+      opacity: 1;
       text-decoration: underline;
       color: white;
     }
   }
 
-  a + a{
+  a + a {
     margin-left: 1em;
   }
 

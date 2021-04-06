@@ -6,7 +6,6 @@ $input-text: #ffffff;
 $input-bg: #111111;
 $input-border: #000000;
 
-
 @mixin not-mobile-screen {
   @media screen and (min-width: 750px) {
     @content;

@@ -2,7 +2,9 @@
 
 html {
   font-size: 16px;
-  font-family: 'Press Start 2P', -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;}
+  font-family: "Press Start 2P", -apple-system, system-ui, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
 * {
   box-sizing: border-box;
 }
@@ -13,21 +15,20 @@ body {
 
   padding: 3.5em 10%;
   @include not-mobile-screen {
-    padding: 4em 30%; 
+    padding: 4em 30%;
   }
 
-  main { 
+  main {
     h1 {
       font-weight: 700;
       text-transform: uppercase;
       font-style: italic;
     }
 
-    
     .top {
       display: flex;
       justify-content: space-between;
-      
+
       #start_text {
         color: green;
 
@@ -44,7 +45,7 @@ body {
       }
       margin-bottom: 2em;
     }
-    
+
     #text_field {
       margin-bottom: 2.5em;
     }
@@ -88,12 +89,12 @@ body {
     .var-name {
       color: white;
     }
-    .equals{
+    .equals {
       padding: 0 0.9em;
       color: orange;
     }
     .val {
-      color: yellow
+      color: yellow;
     }
     .semi {
       color: gray;
@@ -101,13 +102,12 @@ body {
   }
 }
 
-
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }

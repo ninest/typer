@@ -1,30 +1,28 @@
 module.exports = {
-  globDirectory: 'public/',
-  globPatterns: [
-    '**/*.{html,css,js}'
-  ],
-  swDest: 'public/service-worker.js',
+  globDirectory: "public/",
+  globPatterns: ["**/*.{html,css,js}"],
+  swDest: "public/service-worker.js",
   runtimeCaching: [
     {
       urlPattern: /^https:\/\/fonts\.googleapis\.com/,
-      handler: 'StaleWhileRevalidate',
+      handler: "StaleWhileRevalidate",
       options: {
-        cacheName: 'google-fonts-stylesheets'
-      }
+        cacheName: "google-fonts-stylesheets",
+      },
     },
     {
       urlPattern: /^https:\/\/fonts\.gstatic\.com/,
-      handler: 'CacheFirst',
+      handler: "CacheFirst",
       options: {
-        cacheName: 'google-fonts-webfonts',
+        cacheName: "google-fonts-webfonts",
         expiration: {
           // cache fonts for 7 days
           maxAgeSeconds: 60 * 60 * 24 * 7,
-          maxEntries: 30
-        }
-      }
-    }
-  ]
+          maxEntries: 30,
+        },
+      },
+    },
+  ],
 };
 
 // "handler" must be one of [CacheFirst, CacheOnly, NetworkFirst, NetworkOnly, StaleWhileRevalidate]
