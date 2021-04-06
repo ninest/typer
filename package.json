@@ -4,9 +4,9 @@
   "description": "A game to see how fast you can type",
   "main": "index.js",
   "scripts": {
-    "watch": "npm run clean && parcel watch src/index.pug",
+    "watch": "npm run clean && parcel watch src/index.pug src/help.pug src/leaderboards.pug",
     "dev": "concurrently \"npm run watch\" \"http-server dist/\"",
-    "build": "npm run clean && parcel build src/index.pug src/module/index.html src/module/one.html --out-dir public && npm run build-sw",
+    "build": "npm run clean && parcel build src/index.pug src/help.pug src/leaderboards.pug --out-dir public && npm run build-sw",
     "build-sw": "workbox generateSW workbox-config.js",
     "clean": "rimraf ./public && rimraf ./dist && rimraf ./.cache"
   },
@@ -33,7 +33,6 @@
   "dependencies": {
     "crypto-js": "^4.0.0",
     "devtools-detect": "^3.0.0",
-    "firebase": "^7.14.5",
     "parcel-plugin-inliner": "^1.0.14"
   }
 }
